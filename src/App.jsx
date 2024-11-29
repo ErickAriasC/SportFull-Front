@@ -70,7 +70,7 @@ function App() {
       <Route path='/ChangePassword' element={<ChangePassword />} />
       <Route path='/PaymentMethod' element={<PaymentMethod />} />
       <Route path='/FieldServices' element={<Services />} />
-      <Route path='/auth/verify' element={<VerifyEmail />} />
+      <Route path='/verify-email' element={<VerifyEmail />} />
       <Route path='/GestionReservas' element={<GestionReservas />} />
       <Route path='/StatusAccount' element={<StatusAccount />} />
       <Route path='/GestionCanchas' element={<GestionCanchas />} />

@@ -75,7 +75,7 @@ class ClienteService {
 
     //verificar email
     verifyEmail = (token) => {
-        return axios.get(`${API_URL}/verify?token=${token}`);
+        return axios.get(`https://sportfullprueba-production.up.railway.app/verify-email?token=${token}`);
     };
 
     // Método para validar la contraseña
