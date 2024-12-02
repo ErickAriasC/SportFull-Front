@@ -13,7 +13,7 @@ const PaymentMethod = () => {
 
   const fetchTotalValue = async () => {
     try {
-      const response = await fetch(`http://localhost:8080/reservas/${reservaId}/valorTotal`);
+      const response = await fetch(`https://sportfullprueba-production.up.railway.app/reservas/${reservaId}/valorTotal`);
       if (!response.ok) {
         throw new Error("Error al obtener el valor total de la reserva.");
       }
