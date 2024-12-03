@@ -16,6 +16,7 @@ import { ActualizarEmpresa } from './Components/Pages/ActualizarPerfil/Actualiza
 import { ActualizarGestor } from './Components/Pages/ActualizarPerfil/ActualizarGestor/ActualizarGestor'
 import { FieldsList } from './Components/Pages/GestionCanchas/FieldsList/FieldsList.jsx'
 import { HistorialCliente } from './Components/Pages/Historial/HistorialCliente/HistorialCliente'
+import { SoporteCliente } from './Components/Pages/Soporte/SoporteCliente/SoporteCliente'
 import { AdvancedConfiguration } from './Components/Pages/AdvancedConfiguration/AdvancedConfiguration'
 import { ChangePassword } from './Components/Pages/ChangePassword/ChangePassword'
 import { VerifyEmail } from './Components/Pages/VerifyEmail/VerifyEmail'
@@ -45,7 +46,6 @@ import { SearchFields } from './Components/Pages/GestionCanchas/SearchFields/Sea
 import './App.css'
 import CardGps from './Components/UI/CardGps/CardGps.jsx'
 import { UpdateReservationDate } from './Components/UI/UpdateReservationDate/UpdateReservationDate.jsx'
-import Soporte from './Components/Pages/Soporte/Soporte.jsx'
 
 function App() {
 
@@ -65,11 +65,12 @@ function App() {
       <Route path='/ActualizarGestor' element={<ActualizarGestor />} />
       <Route path='/FieldsList' element={<FieldsList />} />
       <Route path='/HistorialCliente' element={<HistorialCliente />} />
+      <Route path='/SoporteCliente' element={<SoporteCliente />} />
       <Route path='/AdvancedConfiguration' element={<AdvancedConfiguration />} />
       <Route path='/ChangePassword' element={<ChangePassword />} />
       <Route path='/PaymentMethod' element={<PaymentMethod />} />
       <Route path='/FieldServices' element={<Services />} />
-      <Route path='/auth/verify' element={<VerifyEmail />} />
+      <Route path='/verify-email' element={<VerifyEmail />} />
       <Route path='/GestionReservas' element={<GestionReservas />} />
       <Route path='/StatusAccount' element={<StatusAccount />} />
       <Route path='/GestionCanchas' element={<GestionCanchas />} />
@@ -92,7 +93,6 @@ function App() {
       <Route path="/PaymentMethod" element={<PaymentMethod />} />
       <Route path="/SearchFields" element={<SearchFields />} />
       <Route path="/UpdateReservationDate" element={<UpdateReservationDate />} />
-      <Route path="/Soporte" element={<Soporte />} />
 
 
     </Routes>

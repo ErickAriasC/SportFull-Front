@@ -76,7 +76,7 @@ export const HistorialCliente = () => {
   }, []);
 
   const handleReservationClick = (reservation) => {
-    if (reservation.estado === 'CONFIRMADA' || reservation.estado === 'PENDIENTE'  ) {
+    if (reservation.estado === 'CONFIRMADA') {
       setSelectedReservation(reservation);
       setModalOpen(true);
     }
@@ -184,10 +184,6 @@ export const HistorialCliente = () => {
           ))}
         </div>
       </main>
-
-      <footer>
-        <NavBar/>
-      </footer>
 
       {modalOpen && selectedReservation && (
         <UpdateReservationDate

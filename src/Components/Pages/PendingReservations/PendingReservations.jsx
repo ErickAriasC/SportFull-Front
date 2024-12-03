@@ -80,9 +80,6 @@ export const PendingReservations = () => {
         ) : (
           <p>No hay reservas pendientes.</p>
         )}
-        <NavLink className="return" to='/HomeClient'>
-          Volver
-        </NavLink>
       </main>
     </div>
   );

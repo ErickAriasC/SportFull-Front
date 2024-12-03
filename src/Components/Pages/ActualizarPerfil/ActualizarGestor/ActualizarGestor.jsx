@@ -136,7 +136,7 @@ export const ActualizarGestor = () => {
     <div style={backgroundStyle} className='container'>
       <Header />
 
-      <main className='main-perfilGestor'>
+      <main>
 
         <h2 className='tittle_update'>Actualizar Perfil</h2>
         <form onSubmit={saveUser} className='form-update'>
