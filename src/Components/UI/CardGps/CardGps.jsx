@@ -101,7 +101,7 @@ const CardGps = () => {
   // Obtener datos del backend y geocodificarlos
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/admin/find-all`)
+      .get(`https://sportfull-back-production.up.railway.app/admin/find-all`)
       .then((response) => {
         const dataCompany = response.data;
         setAllCompanies(dataCompany); // Guarda las empresas originales
