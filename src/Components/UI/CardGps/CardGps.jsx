@@ -66,7 +66,7 @@ const CardGps = () => {
   // Obtener datos del backend y geocodificarlos
   useEffect(() => {
     axios
-      .get(`https://sportfull-backend-production.up.railway.app/admin/find-all`)
+      .get(`https://sportfull-back-production.up.railway.app/admin/find-all`)
       .then((response) => {
         const dataCompany = response.data; // Toda la data de empresas
         setAllUbic(dataCompany); // Almacena todas las ubicaciones pero no las muestra aún
