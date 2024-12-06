@@ -101,13 +101,13 @@ const CardGps = () => {
   // Obtener datos del backend y geocodificarlos
   useEffect(() => {
     axios
-      .get(`https://sportfull-back-production.up.railway.app/fields/findAll`)
+      .get(`https://sportfull-back-production.up.railway.app/admin/find-all`)
       .then((response) => {
         const dataCompany = response.data;
         setAllCompanies(dataCompany); // Guarda las empresas originales
         // Continúa con la lógica de extracción y geocodificación
         const allFields = dataCompany.flatMap((empresa) =>
-          empresa.fields.map((field) => ({
+          empresa.fieldModels.map((field) => ({
             ...field,
             id_empresa: empresa.id,
             direccionEmpresa: empresa.direccionEmpresa,
