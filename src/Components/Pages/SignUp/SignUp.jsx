@@ -54,12 +54,6 @@ export const SignUp = () => {
   };
 
 
-
-
-
-
-
-
   return (
     <div className='signUp'>
 
@@ -164,10 +158,39 @@ export const SignUp = () => {
               </label>
 
               <div>
+                <div className='registro-ultima-seccion'>
+                  <p className='parrafo-tipo-cuenta'>Seleccione el tipo de cuenta</p>
+                  <label className="radio-option">
+                    <input
+                      type="radio"
+                      name="accountType"
+                      value="CLIENTE"
+                      checked={tipoUsuario === 'CLIENTE'}
+                      onChange={(e) => setTipoUsuario(e.target.value)}
+                      required
+                    />
+                    <span className="custom-radio"></span>
+                    Cliente
+                  </label>
+                  <label className="radio-option">
+                    <input
+                      type="radio"
+                      name="accountType"
+                      value="EMPRESA"
+                      checked={tipoUsuario === 'EMPRESA'}
+                      onChange={(e) => setTipoUsuario(e.target.value)}
+                      required
+                    />
+                    <span className="custom-radio"></span>
+                    Empresa
+                  </label>
 
-                
+
+                </div>
+
               </div>
-
+              <button type="submit" className='register'>Registrarse</button>
+              <NavLink className='return' to='/'>Volver</NavLink>
 
             </form>
 
@@ -185,39 +208,6 @@ export const SignUp = () => {
 
           </main>
         </div>
-
-
-        <div className='registro-ultima-seccion'>
-        <p className='parrafo-tipo-cuenta'>Seleccione el tipo de cuenta</p>
-                <label className="radio-option">
-                  <input
-                    type="radio"
-                    name="accountType"
-                    value="CLIENTE"
-                    checked={tipoUsuario === 'CLIENTE'}
-                    onChange={(e) => setTipoUsuario(e.target.value)}
-                    required
-                  />
-                  <span className="custom-radio"></span>
-                  Cliente
-                </label>
-                <label className="radio-option">
-                  <input
-                    type="radio"
-                    name="accountType"
-                    value="EMPRESA"
-                    checked={tipoUsuario === 'EMPRESA'}
-                    onChange={(e) => setTipoUsuario(e.target.value)}
-                    required
-                  />
-                  <span className="custom-radio"></span>
-                  Empresa
-                </label>
-          <button type="submit" className='register'>Registrarse</button>
-          <NavLink className='return' to='/'>Volver</NavLink>
-
-        </div>
-
       </div>
     </div>
   );
