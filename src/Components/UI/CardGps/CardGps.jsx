@@ -101,7 +101,7 @@ const CardGps = () => {
   // Obtener datos del backend y geocodificarlos
   useEffect(() => {
     axios
-      .get(`https://sportfull-back-production.up.railway.app/admin/find-all`)
+      .get(`https://sportfull-back-production.up.railway.app/fields/findAll`)
       .then((response) => {
         const dataCompany = response.data;
         setAllCompanies(dataCompany); // Guarda las empresas originales
@@ -328,9 +328,56 @@ const CardGps = () => {
 //     console.warn("No se pudieron geocodificar canchas válidas.");
 //   }
 // };
+// const geocodeFields = async (fields) => {
+//   const newLocations = await Promise.all(
+//     fields.map(async (field) => {
+//       try {
+//         const response = await axios.get(
+//           `https://nominatim.openstreetmap.org/search`,
+//           {
+//             params: {
+//               q: field.direccionEmpresa,
+//               format: "json",
+//               addressdetails: 1,
+//               limit: 1,
+//               countrycodes: "CO",
+//             },
+//           }
+//         );
+
+//         if (response.data.length > 0) {
+//           const location = response.data[0];
+//           return {
+//             lat: parseFloat(location.lat),
+//             lng: parseFloat(location.lon),
+//             nombre: field.nombreEmpresa,
+//             direccion: field.direccionEmpresa,
+//             id_empresa: field.id_empresa,
+//             fields: field, // Asegúrate de incluir la información del campo
+//           };
+//         }
+//         return null;
+//       } catch (error) {
+//         console.error(`Error en la geocodificación: `, error);
+//         return null;
+//       }
+//     })
+//   );
+
+//   const validLocations = newLocations.filter((location) => location !== null);
+//   setGeocodedFields(validLocations);
+//   setAllUbic(validLocations); // Actualiza allUbic con las ubicaciones geocodificadas
+//   setFilteredLocations(validLocations);
+// };
 const geocodeFields = async (fields) => {
+  const cachedLocations = {}; // Almacena direcciones ya geocodificadas
   const newLocations = await Promise.all(
     fields.map(async (field) => {
+      if (cachedLocations[field.direccionEmpresa]) {
+        // Si ya existe en el caché, reutiliza el resultado
+        return cachedLocations[field.direccionEmpresa];
+      }
+
       try {
         const response = await axios.get(
           `https://nominatim.openstreetmap.org/search`,
@@ -347,14 +394,17 @@ const geocodeFields = async (fields) => {
 
         if (response.data.length > 0) {
           const location = response.data[0];
-          return {
+          const result = {
             lat: parseFloat(location.lat),
             lng: parseFloat(location.lon),
             nombre: field.nombreEmpresa,
             direccion: field.direccionEmpresa,
             id_empresa: field.id_empresa,
-            fields: field, // Asegúrate de incluir la información del campo
+            fields: field, // Incluye información adicional del campo
           };
+
+          cachedLocations[field.direccionEmpresa] = result; // Agrega al caché
+          return result;
         }
         return null;
       } catch (error) {
@@ -366,9 +416,10 @@ const geocodeFields = async (fields) => {
 
   const validLocations = newLocations.filter((location) => location !== null);
   setGeocodedFields(validLocations);
-  setAllUbic(validLocations); // Actualiza allUbic con las ubicaciones geocodificadas
+  setAllUbic(validLocations); // Actualiza las ubicaciones geocodificadas
   setFilteredLocations(validLocations);
 };
+
 
 
   
